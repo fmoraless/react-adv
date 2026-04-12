@@ -4,13 +4,20 @@ import { useForm } from "../hooks/useForm";
 import "../styles/styles.css";
 
 export const RegisterPage = () => {
-  const { formData, onChange, name, email, password, confirmPassword } =
-    useForm({
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    });
+  const {
+    formData,
+    onChange,
+    name,
+    email,
+    password,
+    confirmPassword,
+    resetForm,
+  } = useForm({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -47,11 +54,16 @@ export const RegisterPage = () => {
         <input
           type="password"
           placeholder="confirm password"
+          value={confirmPassword}
           name="confirmPassword"
           onChange={onChange}
         />
 
         <button type="submit">Create</button>
+
+        <button type="button" onClick={resetForm}>
+          Reset
+        </button>
       </form>
     </div>
   );
