@@ -11,10 +11,10 @@ interface FormValues {
 }
 
 export const FormikYupForm = () => {
-  const { handleChange, handleSubmit, values, errors, touched, handleBlur } =
-    useFormik({
+  const { getFieldProps, handleSubmit, errors, touched } =
+    useFormik<FormValues>({
       initialValues: {
-        firstName: "Francisco",
+        firstName: "",
         lastName: "",
         email: "",
       },
@@ -42,11 +42,8 @@ export const FormikYupForm = () => {
         <label htmlFor="">First Name</label>
         <input
           type="text"
-          name="firstName"
-          placeholder="first name"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.firstName}
+          {...getFieldProps("firstName")}
+          placeholder="First Name"
         />
         {touched.firstName && errors.firstName && (
           <span className="error">{errors.firstName}</span>
@@ -55,24 +52,14 @@ export const FormikYupForm = () => {
         <label htmlFor="">Last Name</label>
         <input
           type="text"
-          name="lastName"
-          placeholder="last name"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.lastName}
+          {...getFieldProps("lastName")}
+          placeholder="Last Name"
         />
         {touched.lastName && errors.lastName && (
           <span className="error">{errors.lastName}</span>
         )}
         <label htmlFor="">Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="email"
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={values.email}
-        />
+        <input type="email" placeholder="Email" {...getFieldProps("email")} />
         {touched.email && errors.email && (
           <span className="error">{errors.email}</span>
         )}
