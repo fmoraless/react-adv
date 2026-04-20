@@ -3,9 +3,7 @@ import { useFormik, Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import "../styles/styles.css";
-import { MyTextInput } from "../components/MyTextInput";
-import { MyCheckbox } from "../components/MyCheckbox";
-import { MySelect } from "../components/MySelect";
+import { MyCheckbox, MySelect, MyTextInput } from "../components";
 
 interface FormValues {
   firstName: string;
