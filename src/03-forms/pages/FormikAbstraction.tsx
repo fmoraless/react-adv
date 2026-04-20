@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import "../styles/styles.css";
 import { MyTextInput } from "../components/MyTextInput";
+import { MyCheckbox } from "../components/MyCheckbox";
 
 interface FormValues {
   firstName: string;
@@ -102,11 +103,10 @@ export const FormikAbstraction = () => {
             </Field>
             <ErrorMessage name="jobType" component="span" className="error" />
 
-            <label>
-              <Field name="terms" type="checkbox" />
-              Accept Terms and Conditions
-            </label>
-            <ErrorMessage name="terms" component="span" className="error" />
+            <MyCheckbox
+              name="terms"
+              label="I accept the terms and conditions"
+            />
 
             <button type="submit">Submit</button>
           </Form>
