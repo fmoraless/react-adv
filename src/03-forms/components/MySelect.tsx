@@ -4,7 +4,6 @@ import React from "react";
 interface Props {
   label: string;
   name: string;
-  type?: "text" | "email" | "password";
   placeholder?: string;
   [x: string]: any;
 }
@@ -15,7 +14,7 @@ export const MySelect = ({ label, ...props }: Props) => {
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
+      <select {...field} {...props} />
       {meta.touched && meta.error ? (
         <span className="error">{meta.error}</span>
       ) : null}
